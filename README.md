@@ -24,7 +24,7 @@
     
     Picasso
 
-#Structure (Implementation and decision explained in comments)
+#Structure
 
     MainActivity
         Hosts fragment container and toolbar
