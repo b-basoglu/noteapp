@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">NoteApp</string>
+    <string name="NAVIGATE_TO_ADD">WILL NAVIGATE TO ADD</string>
+    <string name="DELETE_NOTE">DELETE NOTE</string>
+    <string name="NOTE_LIST">My Notes</string>
+    <string name="EDIT_TEXT">Edit Note</string>
+    <string name="CREATE_TEXT">Create Note</string>
+    <string name="RETRY">Countdown</string>
+    <string name="NO_DATA">No data to display</string>
+    <string name="SAVE">SAVE</string>
+    <string name="EDITED">EDITED</string>
+    <string name="notes_title">Notes Title</string>
+    <string name="notes_url">Image Url</string>
+    <string name="notes_desc">Enter Details</string>
+
+</resources>

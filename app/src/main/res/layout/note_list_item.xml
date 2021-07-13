@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="note"
+            type="com.task.noteapp.entities.Note" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_list_item"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:background="@drawable/gradient_item_background"
+        android:orientation="horizontal">
+
+        <com.task.noteapp.customui.NoteImageView
+            android:id="@+id/note_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{note.isImageUrlEmpty() ? View.GONE : View.VISIBLE }"
+            app:layout_constraintDimensionRatio="5:2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+        </com.task.noteapp.customui.NoteImageView>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{note.title}"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/note_image"
+            app:layout_constraintBottom_toTopOf="@+id/tv_desc"
+            tools:text="Ahmed hasim" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{note.desc}"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:layout_marginTop="2dp"
+            app:barrierDirection="end"
+            android:textSize="14sp"
+            android:textColor="@color/white_80"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="@+id/tv_title"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:text="(213) 1221 12121212 21211212 122112 122121 121221 122121" />
+        <TextView
+            android:id="@+id/tv_datetime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{note.dateTime}"
+            android:textColor="@color/white_80"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            android:layout_marginTop="6dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Ahmed hasim" />
+        <TextView
+            android:id="@+id/tv_edited"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/EDITED"
+            android:visibility="@{note.edited ? View.VISIBLE : View.GONE}"
+            android:textColor="@color/white_80"
+            android:textStyle="italic"
+            android:textSize="12sp"
+            android:layout_marginEnd="4dp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@+id/tv_datetime"
+            app:layout_constraintTop_toTopOf="@+id/tv_datetime"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_datetime"
+            tools:text="@string/EDITED" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
