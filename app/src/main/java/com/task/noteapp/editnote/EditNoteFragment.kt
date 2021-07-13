@@ -1,19 +1,24 @@
 package com.task.noteapp.editnote
 
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.task.noteapp.R
 import com.task.noteapp.databinding.FragmentEditNoteBinding
 import com.task.noteapp.main.MainBaseFragment
+import com.task.noteapp.utils.KeyboardUtils.hideKeyboardFrom
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+
 
 /* @AndroidEntryPoint annotation needed. Hilt @AndroidEntryPoint's directly inject with this annotation
 * */
@@ -59,6 +64,7 @@ class EditNoteFragment : MainBaseFragment() {
     private fun setOnClickListeners(){
         btSave.setOnClickListener {
             viewModel.addNote()
+            hideKeyboardFrom(requireContext(),requireView())
             requireActivity().onBackPressed()
         }
     }
@@ -69,7 +75,6 @@ class EditNoteFragment : MainBaseFragment() {
             resources.getString(R.string.EDIT_TEXT)
         }
     }
-
     override fun hideBackButton(): Boolean {
         return false
     }
@@ -77,10 +82,12 @@ class EditNoteFragment : MainBaseFragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
+                hideKeyboardFrom(requireContext(),requireView())
                 requireActivity().onBackPressed()
                 return true
             }
             R.id.delete_note ->{
+                hideKeyboardFrom(requireContext(),requireView())
                 viewModel.deleteNote()
                 requireActivity().onBackPressed()
                 return true
