@@ -1,41 +1,60 @@
-# NoteApp
+#
 
-### Deadline
+#Technologies and Terminologies
 
-We'll be waiting for your solution within 4 days.
+    MVVM architecture
 
-### Goal ###
+    Live Data
+    
+    Hilt
+    
+    Kotlin
 
-Develop a simple note app that allows the user to save/edit/delete any kind of note and display them in a list.
+    Paging3
+    
+    Binding
+    
+    Coroutines
+  
+    Navigation Component
+    
+    JUnit4
+    
+    Expresso
+    
+    Picasso
 
-### Functional Requirements ###
+#Structure (Implementation and decision explained in comments)
 
-* Kotlin is preferred but not a must.
-* Users must be able to create notes with input fields such as title, description, image url (input can be optional) and store it locally on their phones.
-* Created note must contain a created date.
-* There must be a way to display all saved notes in the list. An item on the list must contain the created date (dd/mm/yyyy), the image if url is available, title and max. 2 lines of description.
-* There must be a way to edit/delete previously created notes. But edited notes must contain an (edited) tag somewhere while being displayed on the list.
-* All data should be persisted locally.
+    MainActivity
+        Hosts fragment container and toolbar
+    
+    MainBaseFragment
+        Handles interaction between activity and fragments
+        
+    MainFragment
+        Observe user interaction and lists notes
+        
+    EditNoteFragment
+        Observe user interaction and add delete and update notes
+        
+    MainViewModel
+        Gets notes
+    
+    MainRepository
+        Perform CRUD operations on local database that stores noteDao
+        
+    AppModule
+        Singleton app context provider
+        
+    AppModule
+        Singleton app context provider
 
-### UI Suggestions ###
+    NoteListAdapter
+        PagedListAdapter for recyclerview
+        
+    2 custom view CircleProgressBar and NoteImageView
+    
+    FragmentUtils implemented for fragment transaction // Do not used since navigation component added
 
-It doesn't need to be super pretty, but it shouldn't be broken as well. The design is mostly up to you as long as creating, listing and editing/deleting features are available to use.
-
-Nice to have:
-* Animations/Transitions
-* At least one custom view
-
-### Expectations ###
-
-Consider this as a showcase of your skills.
-Approach it as if you are going to make a pull request on our main/master branch.
-
-We are expecting at least:
-* Clear, defined architecture.
-* Apply the Material Design Guidelines as much as possible.
-* Meaningful tests (You do not need to have 100% coverage, but we will be looking for tests).
-* Good and lint verified syntax.
-* The code can be hosted in any git repository. We expect a clear history in the repo. We don't mind your choice of git strategy as long as it has a track of your progress.
-* The repo must be private and should not contain any references to Getir in it.
-* The code must compile.
-* The code must be production ready. Unit tests are expected.
+#
